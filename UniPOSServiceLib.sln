@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniPOSServiceLib", "UniPOSServiceLib\UniPOSServiceLib.csproj", "{0CCF7526-98FA-4509-BE41-4A25116E344E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLib.CORE", "..\CoreLib\CoreLib.CORE\CoreLib.CORE.csproj", "{A56EB328-B7DE-4266-B6FF-D36DA7C7206F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CCF7526-98FA-4509-BE41-4A25116E344E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CCF7526-98FA-4509-BE41-4A25116E344E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CCF7526-98FA-4509-BE41-4A25116E344E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CCF7526-98FA-4509-BE41-4A25116E344E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56EB328-B7DE-4266-B6FF-D36DA7C7206F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56EB328-B7DE-4266-B6FF-D36DA7C7206F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56EB328-B7DE-4266-B6FF-D36DA7C7206F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56EB328-B7DE-4266-B6FF-D36DA7C7206F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
