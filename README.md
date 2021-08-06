@@ -5,14 +5,17 @@
 Создана по официальной документации со следующих источников: <a href="https://inpas.ru/content/svobodno-rasprostranyaemoe-po" rel="nofollow">1</a>.
 <br/>
 <br/>
-Для работы библиотеки необходима поддержка кодировки win-1251, поэтому перед ее использованием необходимо установить NuGet пакет <b>System.Text.Encoding.CodePages</b> в основной проект и вызвать следующий метод: 
+Для работы библиотеки необходима поддержка кодировки win-1251, поэтому перед ее использованием необходимо установить NuGet пакет <b>System.Text.Encoding.CodePages</b> в основной проект и вызвать следующий метод:
+
 ```csharp
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 ```
-<br/>
+
 Пример использования:
 <br/>
+
 ```csharp
+// В настроках необходимо указать порт службы DC2 и идентификатор терминала
 var connectionSettings = new TerminalConnectionSettings();
 // Если используете HttpClient через внедрение зависимостей
 var result = await new <Операция>.ExecuteAsync(_httpClient, connectionSettings);
