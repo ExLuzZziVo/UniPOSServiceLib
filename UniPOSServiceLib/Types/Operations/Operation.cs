@@ -168,7 +168,7 @@ namespace UniPOSServiceLib.Types.Operations
 
             foreach (var p in typeof(TerminalConnectionSettings).GetProperties())
             {
-                if (p.Name == nameof(TerminalConnectionSettings.ServicePort))
+                if (p.Name == nameof(TerminalConnectionSettings.ServicePort) || p.Name == nameof(TerminalConnectionSettings.TerminalId))
                 {
                     continue;
                 }
