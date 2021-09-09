@@ -22,13 +22,6 @@ namespace UniPOSServiceLib.Types.Operations
         public string CurrencyCode { get; set; }
 
         /// <summary>
-        /// Оригинальная дата и время совершения операции на хосте
-        ///</summary>
-        [Display(Name = "Оригинальная дата и время совершения операции на хосте")]
-        [Id(6)]
-        public DateTime? HostOperationDateTime { get; set; }
-
-        /// <summary>
         /// Код авторизации
         ///</summary>
         [Display(Name = "Код авторизации")]
@@ -41,20 +34,6 @@ namespace UniPOSServiceLib.Types.Operations
         [Display(Name = "Номер ссылки (RRN)")]
         [Id(14)]
         public string LinkNum { get; set; }
-
-        /// <summary>
-        /// Идентификатор транзакции в коммуникационном сервере
-        ///</summary>
-        [Display(Name = "Идентификатор транзакции в коммуникационном сервере")]
-        [Id(23)]
-        public string TransactionId { get; set; }
-
-        /// <summary>
-        /// Идентификатор продавца
-        ///</summary>
-        [Display(Name = "Идентификатор продавца")]
-        [Id(28)]
-        public int? MerchantId { get; set; }
 
         /// <summary>
         /// Номер карты

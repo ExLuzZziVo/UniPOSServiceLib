@@ -18,7 +18,7 @@ namespace UniPOSServiceLib.Types.Operations.ExecuteUserCommand
         {
             UserCommandType = userCommandType;
         }
-        
+
         /// <summary>
         /// Тип пользовательской операции
         ///</summary>
