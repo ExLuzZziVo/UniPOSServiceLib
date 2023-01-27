@@ -1,10 +1,10 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -16,9 +16,11 @@ using CoreLib.CORE.Types;
 using UniPOSServiceLib.Types.Common;
 using UniPOSServiceLib.Types.Enums;
 
+#endregion
+
 namespace UniPOSServiceLib.Types.Operations
 {
-    public abstract class Operation<T> where T : OperationResult, new()
+    public abstract class Operation<T> : IValidatableObject where T : OperationResult, new()
     {
         private static readonly Encoding Windows1251Encoding = Encoding.GetEncoding("windows-1251");
 
@@ -52,17 +54,9 @@ namespace UniPOSServiceLib.Types.Operations
         [Id(27)]
         public string TerminalId { get; private set; }
 
-        /// <summary>
-        /// Проверка текущего запроса
-        /// </summary>
-        /// <returns>Список ошибок</returns>
-        protected virtual IEnumerable<ValidationResult> Validate()
+        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            var validationResults = new List<ValidationResult>(32);
-
-            Validator.TryValidateObject(this, new ValidationContext(this), validationResults, true);
-
-            return validationResults;
+            yield return ValidationResult.Success;
         }
 
         /// <summary>
@@ -70,39 +64,12 @@ namespace UniPOSServiceLib.Types.Operations
         /// </summary>
         /// <param name="connectionSettings">Параметры службы DC2</param>
         /// <returns>Задача, представляющая асинхронную операцию выполнения текущего запроса к службе DC2</returns>
-        public virtual async Task<T> ExecuteAsync(TerminalConnectionSettings connectionSettings)
+        public async Task<T> ExecuteAsync(TerminalConnectionSettings connectionSettings)
         {
-            var xmlData = Windows1251Encoding.GetBytes(GenerateXML(connectionSettings));
-
-            var request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:{connectionSettings.ServicePort}");
-            request.Method = WebRequestMethods.Http.Post;
-            request.Accept = "text/xml";
-            request.ContentType = "text/xml; charset=windows-1251";
-            request.ContentLength = xmlData.Length;
-
-            using (var str = request.GetRequestStream())
+            using (var httpClient = new HttpClient())
             {
-                await str.WriteAsync(xmlData, 0, xmlData.Length);
+                return await ExecuteAsync(httpClient, connectionSettings);
             }
-
-            string responseResult;
-
-            using (var response = (HttpWebResponse)await request.GetResponseAsync())
-            {
-                using (var sr = new MemoryStream())
-                {
-                    await response.GetResponseStream().CopyToAsync(sr);
-
-                    responseResult = Windows1251Encoding.GetString(sr.ToArray());
-                }
-
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    throw new HttpRequestException(responseResult);
-                }
-            }
-
-            return ProcessResponse(responseResult);
         }
 
         /// <summary>
@@ -119,11 +86,11 @@ namespace UniPOSServiceLib.Types.Operations
             string responseResult;
 
             using (var response = await httpClient.SendAsync(
-                new HttpRequestMessage(HttpMethod.Post, $"http://127.0.0.1:{connectionSettings.ServicePort}")
-                {
-                    Content = new StringContent(xml, Windows1251Encoding, "text/xml"),
-                    Headers = { Accept = { MediaTypeWithQualityHeaderValue.Parse("text/xml") } }
-                }))
+                       new HttpRequestMessage(HttpMethod.Post, $"http://127.0.0.1:{connectionSettings.ServicePort}")
+                       {
+                           Content = new StringContent(xml, Windows1251Encoding, "text/xml"),
+                           Headers = { Accept = { MediaTypeWithQualityHeaderValue.Parse("text/xml") } }
+                       }))
             {
                 responseResult = Windows1251Encoding.GetString(await response.Content.ReadAsByteArrayAsync());
 
@@ -148,7 +115,10 @@ namespace UniPOSServiceLib.Types.Operations
                 throw new ArgumentNullException(nameof(connectionSettings));
             }
 
-            var validationResults = connectionSettings.Validate();
+            var validationResults = new List<ValidationResult>(32);
+
+            Validator.TryValidateObject(connectionSettings, new ValidationContext(connectionSettings),
+                validationResults, true);
 
             if (validationResults.Count() != 0)
             {
@@ -157,7 +127,7 @@ namespace UniPOSServiceLib.Types.Operations
 
             TerminalId = connectionSettings.TerminalId;
 
-            validationResults = Validate();
+            Validator.TryValidateObject(this, new ValidationContext(this), validationResults, true);
 
             if (validationResults.Count() != 0)
             {
@@ -290,7 +260,7 @@ namespace UniPOSServiceLib.Types.Operations
                             case 21:
                             {
                                 if (DateTime.TryParseExact(responseValues[idAttr.Id], "yyyyMMddHHmmss",
-                                    CultureInfo.InvariantCulture, DateTimeStyles.None, out var val))
+                                        CultureInfo.InvariantCulture, DateTimeStyles.None, out var val))
                                 {
                                     p.SetValue(result, val);
                                 }
@@ -300,8 +270,8 @@ namespace UniPOSServiceLib.Types.Operations
                             case 11:
                             {
                                 if (DateTime.TryParseExact(responseValues[idAttr.Id], "yyMM",
-                                    CultureInfo.InvariantCulture,
-                                    DateTimeStyles.None, out var val))
+                                        CultureInfo.InvariantCulture,
+                                        DateTimeStyles.None, out var val))
                                 {
                                     p.SetValue(result, val);
                                 }

@@ -1,7 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿#region
+
+using System.ComponentModel.DataAnnotations;
 using CoreLib.CORE.Resources;
 using UniPOSServiceLib.Types.Common;
 using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations.ExecuteUserCommand
 {

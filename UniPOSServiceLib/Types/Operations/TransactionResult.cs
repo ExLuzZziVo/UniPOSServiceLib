@@ -1,7 +1,10 @@
+#region
+
 using System;
 using System.ComponentModel.DataAnnotations;
 using UniPOSServiceLib.Types.Common;
-using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations
 {
@@ -27,7 +30,7 @@ namespace UniPOSServiceLib.Types.Operations
         [Display(Name = "Дополнительные данные ответа")]
         [Id(19)]
         public string AdditionalResponseData { get; set; }
-        
+
         /// <summary>
         /// Идентификатор транзакции в коммуникационном сервере
         ///</summary>

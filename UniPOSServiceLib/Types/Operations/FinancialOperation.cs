@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using CoreLib.CORE.Helpers.ObjectHelpers;
@@ -6,6 +8,8 @@ using CoreLib.CORE.Helpers.StringHelpers;
 using CoreLib.CORE.Resources;
 using UniPOSServiceLib.Types.Common;
 using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations
 {

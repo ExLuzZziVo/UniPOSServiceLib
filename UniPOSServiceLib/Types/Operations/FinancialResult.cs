@@ -1,7 +1,10 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel.DataAnnotations;
 using UniPOSServiceLib.Types.Common;
-using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations
 {

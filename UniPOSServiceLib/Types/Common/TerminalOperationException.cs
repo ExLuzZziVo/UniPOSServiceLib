@@ -1,7 +1,11 @@
+#region
+
 using System;
 using CoreLib.CORE.Helpers.EnumHelpers;
 using CoreLib.CORE.Helpers.StringHelpers;
 using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Common
 {

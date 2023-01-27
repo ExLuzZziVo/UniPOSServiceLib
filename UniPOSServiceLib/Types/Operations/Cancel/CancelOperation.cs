@@ -1,10 +1,12 @@
-﻿using System;
+﻿#region
+
 using System.ComponentModel.DataAnnotations;
-using CoreLib.CORE.Helpers.ObjectHelpers;
 using CoreLib.CORE.Helpers.StringHelpers;
 using CoreLib.CORE.Resources;
 using UniPOSServiceLib.Types.Common;
 using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations.Cancel
 {

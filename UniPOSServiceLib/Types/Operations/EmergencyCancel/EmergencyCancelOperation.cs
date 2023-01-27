@@ -1,4 +1,8 @@
-﻿using UniPOSServiceLib.Types.Enums;
+﻿#region
+
+using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations.EmergencyCancel
 {

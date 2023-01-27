@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,6 +8,8 @@ using System.Text.RegularExpressions;
 using CoreLib.CORE.Helpers.StringHelpers;
 using UniPOSServiceLib.Types.Common;
 using UniPOSServiceLib.Types.Enums;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Operations
 {
@@ -47,6 +51,18 @@ namespace UniPOSServiceLib.Types.Operations
         public string ReceiptData { get; set; }
 
         /// <summary>
+        /// Необработанные поля протокола SA
+        ///</summary>
+        [Display(Name = "Необработанные поля протокола SA")]
+        public Dictionary<byte, string> UnhandledFields { get; set; }
+
+        /// <summary>
+        /// Сырые данные запроса
+        ///</summary>
+        [Display(Name = "Сырые данные запроса")]
+        public string RawData { get; set; }
+
+        /// <summary>
         /// Обрабатывает <see cref="ReceiptData"/>, выделяя значения тегов 0xDF и 0xDA
         /// </summary>
         /// <returns>Массив строк, в котором содержатся обработанные данные для печати на чеке (Значения тегов 0xDF и 0xDA). Если строка <see cref="ReceiptData"/> пустая или ее не удалось обработать - возвращает null</returns>
@@ -62,17 +78,5 @@ namespace UniPOSServiceLib.Types.Operations
 
             return result.Any() ? result : null;
         }
-
-        /// <summary>
-        /// Необработанные поля протокола SA
-        ///</summary>
-        [Display(Name = "Необработанные поля протокола SA")]
-        public Dictionary<byte, string> UnhandledFields { get; set; }
-
-        /// <summary>
-        /// Сырые данные запроса
-        ///</summary>
-        [Display(Name = "Сырые данные запроса")]
-        public string RawData { get; set; }
     }
 }

@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿#region
+
 using System.ComponentModel.DataAnnotations;
 using CoreLib.CORE.Helpers.StringHelpers;
 using CoreLib.CORE.Resources;
+
+#endregion
 
 namespace UniPOSServiceLib.Types.Common
 {
@@ -77,18 +80,5 @@ namespace UniPOSServiceLib.Types.Common
         [Range(0, 3600, ErrorMessageResourceType = typeof(ValidationStrings),
             ErrorMessageResourceName = "DigitRangeValuesError")]
         public int? Timeout { get; set; }
-
-        /// <summary>
-        /// Проверка параметров
-        /// </summary>
-        /// <returns>Список ошибок</returns>
-        internal IEnumerable<ValidationResult> Validate()
-        {
-            var validationResults = new List<ValidationResult>(32);
-
-            Validator.TryValidateObject(this, new ValidationContext(this), validationResults, true);
-
-            return validationResults;
-        }
     }
 }
