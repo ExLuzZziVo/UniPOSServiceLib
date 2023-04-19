@@ -15,8 +15,8 @@ namespace UniPOSServiceLib.Types.Operations.Sell
         /// Оплата
         /// </summary>
         /// <param name="amount">Сумма операции</param>
-        /// <param name="currencyCode">Код валюты операции</param>
-        public SellOperation(decimal amount, string currencyCode) : base(amount, currencyCode,
+        /// <param name="currencyCode">Код валюты операции. По умолчанию: 643 (Российский рубль)</param>
+        public SellOperation(decimal amount, string currencyCode = "643") : base(amount, currencyCode,
             OperationType.Sell) { }
     }
 }

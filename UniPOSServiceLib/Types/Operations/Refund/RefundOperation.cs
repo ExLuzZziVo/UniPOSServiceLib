@@ -19,8 +19,8 @@ namespace UniPOSServiceLib.Types.Operations.Refund
         /// Возврат платежа
         /// </summary>
         /// <param name="amount">Сумма операции</param>
-        /// <param name="currencyCode">Код валюты операции</param>
-        public RefundOperation(decimal amount, string currencyCode) : base(amount, currencyCode,
+        /// <param name="currencyCode">Код валюты операции. По умолчанию: 643 (Российский рубль)</param>
+        public RefundOperation(decimal amount, string currencyCode = "643") : base(amount, currencyCode,
             OperationType.Refund) { }
 
         /// <summary>
