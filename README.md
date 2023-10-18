@@ -1,18 +1,18 @@
 # UniPOSServiceLib
 Библиотека для работы с терминалами на базе ПО UNIPOS Terminal при помощи службы DUALConnector2.
-<br/>
-<br/>
-Создана по официальной документации со следующих источников: <a href="https://inpas.ru/content/svobodno-rasprostranyaemoe-po" rel="nofollow">1</a>.
-<br/>
-<br/>
-Для работы библиотеки необходима поддержка кодировки win-1251, поэтому перед ее использованием необходимо установить NuGet пакет <b>System.Text.Encoding.CodePages</b> в основной проект и вызвать следующий метод:
+
+
+Создана по официальной документации со следующих источников: [1](https://inpas.ru/content/svobodno-rasprostranyaemoe-po).
+
+
+Для работы библиотеки необходима поддержка кодировки win-1251, поэтому перед ее использованием необходимо установить NuGet пакет **System.Text.Encoding.CodePages** в основной проект и вызвать следующий метод:
 
 ```csharp
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 ```
 
 Пример использования:
-<br/>
+
 
 ```csharp
 // В настроках необходимо указать порт службы DC2 и идентификатор терминала
@@ -23,7 +23,7 @@ var result = await new <Операция>.ExecuteAsync(_httpClient, connectionSe
 var result = await new <Операция>.ExecuteAsync(connectionSettings);
 ```
 
-Все доступные операции находятся в пространстве имен <b>UniPOSServiceLib.Types.Operations</b>
-<br/>
-<br/>
-Зависимости CoreLib вы можете найти <a href="https://github.com/ExLuzZziVo/CoreLib" rel="nofollow">тут</a>.
+Все доступные операции находятся в пространстве имен **UniPOSServiceLib.Types.Operations**
+
+
+Зависимости CoreLib вы можете найти [тут](https://github.com/ExLuzZziVo/CoreLib).
