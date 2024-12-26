@@ -12,7 +12,7 @@ namespace UniPOSServiceLib.Types.Operations.CloseSession
     /// <summary>
     /// Сверка итогов
     /// </summary>
-    public class CloseSessionOperation : Operation<CloseSessionResult>
+    public class CloseSessionOperation: Operation<CloseSessionResult>
     {
         /// <summary>
         /// Сверка итогов

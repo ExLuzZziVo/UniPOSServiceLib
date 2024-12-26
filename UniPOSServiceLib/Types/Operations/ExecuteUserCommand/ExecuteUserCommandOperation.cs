@@ -12,7 +12,7 @@ namespace UniPOSServiceLib.Types.Operations.ExecuteUserCommand
     /// <summary>
     /// Выполнение пользовательской команды
     /// </summary>
-    public class ExecuteUserCommandOperation : Operation<ExecuteUserCommandResult>
+    public class ExecuteUserCommandOperation: Operation<ExecuteUserCommandResult>
     {
         /// <summary>
         /// Выполнение пользовательской команды

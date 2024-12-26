@@ -12,7 +12,7 @@ namespace UniPOSServiceLib.Types.Common
     /// <summary>
     /// Исключение, которое выбрасывается в случае ошибки выполнения операции службой DC2
     /// </summary>
-    public class TerminalOperationException : Exception
+    public class TerminalOperationException: Exception
     {
         /// <summary>
         /// Исключение, которое выбрасывается в случае ошибки выполнения операции службой DC2

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UniPOSServiceLib.Types.Enums
 {
-    public enum OperationType : byte
+    public enum OperationType: byte
     {
         /// <summary>
         /// Оплата товаров и услуг

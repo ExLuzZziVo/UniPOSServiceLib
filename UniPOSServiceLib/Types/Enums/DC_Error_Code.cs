@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UniPOSServiceLib.Types.Enums
 {
-    public enum DC_Error_Code : byte
+    public enum DC_Error_Code: byte
     {
         /// <summary>
         /// Ошибок нет

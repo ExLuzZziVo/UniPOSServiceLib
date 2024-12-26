@@ -10,7 +10,7 @@ namespace UniPOSServiceLib.Types.Common
     /// Атрибут для сопоставления свойства с полем протокола SA
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class IdAttribute : Attribute
+    public class IdAttribute: Attribute
     {
         /// <summary>
         /// Атрибут для сопоставления свойства с полем протокола SA

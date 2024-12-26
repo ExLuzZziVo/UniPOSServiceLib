@@ -3,5 +3,5 @@
     /// <summary>
     /// Результат аварийной отмены платежа
     /// </summary>
-    public class EmergencyCancelResult : FinancialResult { }
+    public class EmergencyCancelResult: FinancialResult { }
 }

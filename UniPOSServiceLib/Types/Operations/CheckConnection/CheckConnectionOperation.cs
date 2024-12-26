@@ -9,7 +9,7 @@ namespace UniPOSServiceLib.Types.Operations.CheckConnection
     /// <summary>
     /// Проверка соединения с банком
     /// </summary>
-    public class CheckConnectionOperation : Operation<CheckConnectionResult>
+    public class CheckConnectionOperation: Operation<CheckConnectionResult>
     {
         /// <summary>
         /// Проверка соединения с банком

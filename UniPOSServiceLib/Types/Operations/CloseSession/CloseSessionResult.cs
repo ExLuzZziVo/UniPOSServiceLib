@@ -3,5 +3,5 @@
     /// <summary>
     /// Результат сверки итогов
     /// </summary>
-    public class CloseSessionResult : TransactionResult { }
+    public class CloseSessionResult: TransactionResult { }
 }

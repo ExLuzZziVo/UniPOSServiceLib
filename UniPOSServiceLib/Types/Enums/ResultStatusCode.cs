@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UniPOSServiceLib.Types.Enums
 {
-    public enum ResultStatusCode : byte
+    public enum ResultStatusCode: byte
     {
         /// <summary>
         /// Неопределенный статус. Транзакция не выполнена

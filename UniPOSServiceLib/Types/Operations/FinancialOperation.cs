@@ -13,7 +13,7 @@ using UniPOSServiceLib.Types.Enums;
 
 namespace UniPOSServiceLib.Types.Operations
 {
-    public abstract class FinancialOperation<T> : Operation<T> where T : FinancialResult, new()
+    public abstract class FinancialOperation<T>: Operation<T> where T : FinancialResult, new()
     {
         /// <summary>
         /// Создание запроса к службе DC2, связанного с финансовыми операциями

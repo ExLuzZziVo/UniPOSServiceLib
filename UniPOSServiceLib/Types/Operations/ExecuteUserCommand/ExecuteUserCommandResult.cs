@@ -11,7 +11,7 @@ namespace UniPOSServiceLib.Types.Operations.ExecuteUserCommand
     /// <summary>
     /// Результат выполнения пользовательской команды
     /// </summary>
-    public class ExecuteUserCommandResult : OperationResult
+    public class ExecuteUserCommandResult: OperationResult
     {
         /// <summary>
         /// Идентификатор пользовательской команды

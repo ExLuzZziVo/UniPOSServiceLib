@@ -3,5 +3,5 @@
     /// <summary>
     /// Результат отмены платежа
     /// </summary>
-    public class CancelResult : FinancialResult { }
+    public class CancelResult: FinancialResult { }
 }

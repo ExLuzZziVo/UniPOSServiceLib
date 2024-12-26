@@ -3,5 +3,5 @@
     /// <summary>
     /// Результат оплаты
     /// </summary>
-    public class SellResult : FinancialResult { }
+    public class SellResult: FinancialResult { }
 }

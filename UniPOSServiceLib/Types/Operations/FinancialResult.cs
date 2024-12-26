@@ -8,7 +8,7 @@ using UniPOSServiceLib.Types.Common;
 
 namespace UniPOSServiceLib.Types.Operations
 {
-    public abstract class FinancialResult : TransactionResult
+    public abstract class FinancialResult: TransactionResult
     {
         /// <summary>
         /// Сумма операции

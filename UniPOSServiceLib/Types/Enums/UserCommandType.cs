@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UniPOSServiceLib.Types.Enums
 {
-    public enum UserCommandType : byte
+    public enum UserCommandType: byte
     {
         /// <summary>
         /// Запрос краткого отчета

@@ -13,7 +13,7 @@ namespace UniPOSServiceLib.Types.Operations.Cancel
     /// <summary>
     /// Отмена платежа
     /// </summary>
-    public class CancelOperation : FinancialOperation<CancelResult>
+    public class CancelOperation: FinancialOperation<CancelResult>
     {
         /// <summary>
         /// Отмена платежа
@@ -21,7 +21,8 @@ namespace UniPOSServiceLib.Types.Operations.Cancel
         /// <param name="amount">Сумма операции</param>
         /// <param name="currencyCode">Код валюты операции. По умолчанию: 643 (Российский рубль)</param>
         public CancelOperation(decimal amount, string currencyCode = "643") : base(amount, currencyCode,
-            OperationType.CancelSell) { }
+            OperationType.CancelSell)
+        { }
 
         /// <summary>
         /// Код авторизации

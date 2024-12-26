@@ -8,7 +8,7 @@ using UniPOSServiceLib.Types.Common;
 
 namespace UniPOSServiceLib.Types.Operations
 {
-    public abstract class TransactionResult : OperationResult
+    public abstract class TransactionResult: OperationResult
     {
         /// <summary>
         /// Оригинальная дата и время совершения операции на хосте

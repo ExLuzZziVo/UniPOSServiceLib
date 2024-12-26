@@ -20,7 +20,7 @@ using UniPOSServiceLib.Types.Enums;
 
 namespace UniPOSServiceLib.Types.Operations
 {
-    public abstract class Operation<T> : IValidatableObject where T : OperationResult, new()
+    public abstract class Operation<T>: IValidatableObject where T : OperationResult, new()
     {
         private static readonly Encoding Windows1251Encoding = Encoding.GetEncoding("windows-1251");
 
@@ -248,74 +248,74 @@ namespace UniPOSServiceLib.Types.Operations
                         switch (idAttr.Id)
                         {
                             case 0:
-                            {
-                                if (decimal.TryParse(responseValues[idAttr.Id], out var val))
                                 {
-                                    p.SetValue(result, val / 100);
-                                }
+                                    if (decimal.TryParse(responseValues[idAttr.Id], out var val))
+                                    {
+                                        p.SetValue(result, val / 100);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             case 6:
                             case 21:
-                            {
-                                if (DateTime.TryParseExact(responseValues[idAttr.Id], "yyyyMMddHHmmss",
-                                        CultureInfo.InvariantCulture, DateTimeStyles.None, out var val))
                                 {
-                                    p.SetValue(result, val);
-                                }
+                                    if (DateTime.TryParseExact(responseValues[idAttr.Id], "yyyyMMddHHmmss",
+                                            CultureInfo.InvariantCulture, DateTimeStyles.None, out var val))
+                                    {
+                                        p.SetValue(result, val);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             case 11:
-                            {
-                                if (DateTime.TryParseExact(responseValues[idAttr.Id], "yyMM",
-                                        CultureInfo.InvariantCulture,
-                                        DateTimeStyles.None, out var val))
                                 {
-                                    p.SetValue(result, val);
-                                }
+                                    if (DateTime.TryParseExact(responseValues[idAttr.Id], "yyMM",
+                                            CultureInfo.InvariantCulture,
+                                            DateTimeStyles.None, out var val))
+                                    {
+                                        p.SetValue(result, val);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             case 25:
-                            {
-                                if (Enum.TryParse<OperationType>(responseValues[idAttr.Id], out var val))
                                 {
-                                    p.SetValue(result, val);
-                                }
+                                    if (Enum.TryParse<OperationType>(responseValues[idAttr.Id], out var val))
+                                    {
+                                        p.SetValue(result, val);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             case 26:
                             case 28:
                             case 67:
-                            {
-                                if (int.TryParse(responseValues[idAttr.Id], out var val))
                                 {
-                                    p.SetValue(result, val);
-                                }
+                                    if (int.TryParse(responseValues[idAttr.Id], out var val))
+                                    {
+                                        p.SetValue(result, val);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             case 39:
-                            {
-                                if (Enum.TryParse<ResultStatusCode>(responseValues[idAttr.Id], out var val))
                                 {
-                                    p.SetValue(result, val);
-                                }
+                                    if (Enum.TryParse<ResultStatusCode>(responseValues[idAttr.Id], out var val))
+                                    {
+                                        p.SetValue(result, val);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             case 65:
-                            {
-                                if (Enum.TryParse<UserCommandType>(responseValues[idAttr.Id], out var val))
                                 {
-                                    p.SetValue(result, val);
-                                }
+                                    if (Enum.TryParse<UserCommandType>(responseValues[idAttr.Id], out var val))
+                                    {
+                                        p.SetValue(result, val);
+                                    }
 
-                                break;
-                            }
+                                    break;
+                                }
                             default:
                                 p.SetValue(result, responseValues[idAttr.Id]);
 

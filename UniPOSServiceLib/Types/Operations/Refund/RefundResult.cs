@@ -3,5 +3,5 @@
     /// <summary>
     /// Результат возврата платежа
     /// </summary>
-    public class RefundResult : FinancialResult { }
+    public class RefundResult: FinancialResult { }
 }
